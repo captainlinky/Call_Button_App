@@ -1,6 +1,9 @@
-This application is intended to replace nursing a nursing home call button via the patients cell phone. The application is installed on the "nursing station" which is a PC that is where ever you commonly sit during your day, the Nursing station
-will start listening on http://{NURSINGSTATIONIPADDRESS}:5000 and will become immediately accessible to any device on your LAN/WLAN via web browser provided there are no firewalls between the wifi network and where the PC sits.
+This application is intended to replace nursing a nursing home call button via the patients cell phone.
+
+The application is installed on the "nursing station" which is a PC that is where ever you commonly sit during your day, the Nursing station will start listening on http://{NURSINGSTATIONIPADDRESS}:5000 and will become immediately accessible to any device on your LAN/WLAN via web browser provided there are no firewalls between the wifi network and where the PC sits.
+
 On the cell phone/tablet you can save as a shortcut on their application home screen and it will open up in a mobile friendly manner. There are 4 buttons categorizing what the patient call is for. Urine, bowel movements, food or drink, general call.
+
 The data from the button pushes is tagged and added into event_log.csv. The events can be visualized on http://{NURSINGSTATIONIPADDRESS}:5000/trend or by clicking the unofficial 5th button at the top of the main screen of the App. 
 
 On the "Nursing station" an audible alert will sound and a system message will pop up.

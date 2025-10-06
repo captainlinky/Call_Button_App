@@ -4,7 +4,7 @@ The application is installed on the "nursing station" which is a PC that is wher
 
 On the cell phone/tablet you can save as a shortcut on their application home screen and it will open up in a mobile friendly manner. There are 4 buttons categorizing what the patient call is for. Urine, bowel movements, food or drink, general call.
 
-The data from the button pushes is tagged and added into event_log.csv. The events can be visualized on http://{NURSINGSTATIONIPADDRESS}:5000/trend or by clicking the unofficial 5th button at the top of the main screen of the App. 
+The data from the button pushes is tagged and added into event_log.csv. The events can be visualized on http://{NURSINGSTATIONIPADDRESS}:5000/trend or by clicking the unofficial 5th button at the bottom of the main screen of the App. 
 
 On the "Nursing station" an audible alert will sound and a system message will pop up indicating the nature of the call.
 

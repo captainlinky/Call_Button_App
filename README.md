@@ -92,9 +92,3 @@ It’s not meant for institutional use or multi-patient setups.
 
 🛡️ Security Note
 This app runs locally and does not include authentication. It’s intended for trusted home networks. If you need lightweight protection later, options like basic auth or PIN-based access can be added.
-
-📸 Screenshots
-
-<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/8a96de4a-c92b-43d3-8db3-3b40d704cfc9" /><img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/6e2517b0-b65f-45d1-8166-b345c192bdc8" />
-
-<img width="835" height="256" alt="image" src="https://github.com/user-attachments/assets/0db7359e-b009-44cf-9061-a7f2810d4e95" />

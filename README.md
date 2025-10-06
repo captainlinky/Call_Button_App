@@ -6,7 +6,7 @@ On the cell phone/tablet you can save as a shortcut on their application home sc
 
 The data from the button pushes is tagged and added into event_log.csv. The events can be visualized on http://{NURSINGSTATIONIPADDRESS}:5000/trend or by clicking the unofficial 5th button at the top of the main screen of the App. 
 
-On the "Nursing station" an audible alert will sound and a system message will pop up.
+On the "Nursing station" an audible alert will sound and a system message will pop up indicating the nature of the call.
 
 Please note this application is for 1:1 care. The intended market are caretakers taking in their loved ones and want to track the frequency and types of care that are required, which is useful for figuring out schedules or when in home care staff need information for diagnostics of a health issue.
 

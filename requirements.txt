@@ -1,0 +1,19 @@
+# Minimal requirements for running app.py
+# These are the libraries imported and used by the application.
+# To produce an exact, reproducible set of pinned versions, activate your
+# virtualenv and run: pip freeze > requirements.txt
+
+Flask==3.1.2
+pandas>=2.0
+matplotlib>=3.7
+numpy>=1.24
+python-dateutil>=2.8
+
+# Optional (deployment)
+# gunicorn
+
+# Notes:
+# - If you want exact versions, run:
+#     source <venv>/bin/activate
+#     pip freeze > requirements.txt
+# - The sound playback uses system utilities (paplay/mpg123) not Python packages.

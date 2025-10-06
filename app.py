@@ -11,11 +11,6 @@ LOG_FILE = 'event_log.csv'
 ALERT_SOUND = 'alert.mp3'
 
 def log_event(event_type):
-    # sanitize event_type to avoid CSV injection or invalid values
-    if not isinstance(event_type, str):
-        event_type = str(event_type)
-    event_type = event_type.strip()[:100]
-
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     file_exists = os.path.exists(LOG_FILE)
     write_header = not file_exists or os.path.getsize(LOG_FILE) == 0
@@ -30,23 +25,10 @@ def log_event(event_type):
 
 def play_sound():
     sound_path = os.path.join('sounds', ALERT_SOUND)
-    if not os.path.exists(sound_path):
-        print(f"[WARN] Sound file not found: {sound_path}")
-        return
-
-    # prefer non-blocking playback; try common players
-    players = [['paplay', sound_path], ['mpg123', sound_path], ['afplay', sound_path]]
-    for cmd in players:
-        try:
-            subprocess.Popen(cmd)
-            print(f"[PLAYING] {' '.join(cmd)}")
-            return
-        except FileNotFoundError:
-            # player not installed, try next
-            continue
-        except Exception as e:
-            print(f"[ERROR] Failed to start player {cmd[0]}: {e}")
-    print("[ERROR] No audio player succeeded; install paplay/mpg123/afplay or adjust ALERT_SOUND path")
+    try:
+        subprocess.run(['mpg123', sound_path], check=True)
+    except Exception as e:
+        print(f"[ERROR] Sound playback failed: {e}")
 
 @app.route('/trend')
 def trend():
@@ -75,8 +57,6 @@ def trend():
             raise FileNotFoundError(f"{LOG_FILE} not found")
 
         df = pd.read_csv(LOG_FILE)
-        if df.empty:
-            return render_template('trend.html', graph=None, totals={}, range_selected=range_param)
         required_columns = {'timestamp', 'event_type'}
         if not required_columns.issubset(df.columns):
             raise KeyError(f"CSV must contain columns: {required_columns}")
@@ -133,24 +113,7 @@ def export_trend():
     else:
         cutoff = now - pd.Timedelta(days=7)
 
-    # Safely load CSV; return empty CSV if file missing or empty
-    if not os.path.exists(LOG_FILE):
-        csv_data = 'date,'  # minimal header
-        return Response(
-            csv_data,
-            mimetype='text/csv',
-            headers={"Content-Disposition": f"attachment;filename=trend_{range_param}.csv"}
-        )
-
     df = pd.read_csv(LOG_FILE)
-    if df.empty:
-        csv_data = ''
-        return Response(
-            csv_data,
-            mimetype='text/csv',
-            headers={"Content-Disposition": f"attachment;filename=trend_{range_param}.csv"}
-        )
-
     df['timestamp'] = pd.to_datetime(df['timestamp'])
     df = df[df['timestamp'] >= cutoff]
     df['date'] = df['timestamp'].dt.strftime('%Y-%m-%d')

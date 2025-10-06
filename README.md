@@ -1,4 +1,3 @@
-markdown
 # 💙 Call Button App
 
 A simple, mobile-friendly alert system for 1:1 caregiving—built to replace the traditional nursing home call button using a patient’s phone or tablet.
@@ -92,8 +91,3 @@ It’s not meant for institutional use or multi-patient setups.
 
 🛡️ Security Note
 This app runs locally and does not include authentication. It’s intended for trusted home networks. If you need lightweight protection later, options like basic auth or PIN-based access can be added.
-
-<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/bd478e9f-b585-443f-8ddf-cf65fd29f641" />
-<img width="835" height="256" alt="image" src="https://github.com/user-attachments/assets/36004f10-3512-4cf0-beda-d5efa1211d70" />
-
-<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/4bf66b1b-e3a0-4138-bca3-83be37e91ad4" />

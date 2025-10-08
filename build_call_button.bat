@@ -26,7 +26,7 @@ IF ERRORLEVEL 1 (
 
 :: Build the EXE
 echo 🚧 Building Call_Button_App executable...
-pyinstaller --onefile --windowed Call_Button_App.py \
+pyinstaller --onefile --windowed App.py \
   --add-data "templates;templates" \
   --add-data "static;static" \
   --add-data "sounds;sounds"

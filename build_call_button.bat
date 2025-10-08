@@ -1,7 +1,7 @@
 @echo off
 SETLOCAL
 
-:: Check for Python
+:: 🧪 Check for Python
 python --version >nul 2>&1
 IF ERRORLEVEL 1 (
     echo ❌ Python is not installed or not in PATH.
@@ -9,7 +9,7 @@ IF ERRORLEVEL 1 (
     EXIT /B 1
 )
 
-:: Check for pip
+:: 📦 Check for pip
 pip --version >nul 2>&1
 IF ERRORLEVEL 1 (
     echo ❌ pip is not installed or not in PATH.
@@ -17,22 +17,28 @@ IF ERRORLEVEL 1 (
     EXIT /B 1
 )
 
-:: Install PyInstaller if missing
+:: 🔍 Check for PyInstaller
 pip show pyinstaller >nul 2>&1
 IF ERRORLEVEL 1 (
     echo 📦 Installing PyInstaller...
     pip install pyinstaller
 )
 
-:: Build the EXE
+:: 🧹 Clean previous builds
+echo 🧹 Cleaning old build artifacts...
+rmdir /s /q dist
+rmdir /s /q build
+del Call_Button_App.spec >nul 2>&1
+
+:: 🚧 Build the EXE
 echo 🚧 Building Call_Button_App executable...
-pyinstaller --onefile --windowed App.py \
-  --add-data "templates;templates" \
-  --add-data "static;static" \
+pyinstaller --onefile --windowed Call_Button_App.py ^
+  --add-data "templates;templates" ^
+  --add-data "static;static" ^
   --add-data "sounds;sounds"
 
-
-echo ✅ Build complete. Check the dist\ folder for your .exe file.
+:: ✅ Completion message
+echo ✅ Build complete. Check the dist\ folder for Call_Button_App.exe
 
 ENDLOCAL
 pause

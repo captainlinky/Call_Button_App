@@ -1,4 +1,4 @@
-Perfect — here’s your updated `README.md` with a dedicated **Screenshots** section. Just replace the placeholder image paths with your actual file names or URLs once they’re uploaded to the repo:
+
 
 ---
 

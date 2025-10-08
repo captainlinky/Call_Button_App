@@ -1,8 +1,4 @@
 
-<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/67253283-1946-4f2a-97c2-1d25f9ccda51" />
-<img width="835" height="256" alt="image" src="https://github.com/user-attachments/assets/8891446d-bfeb-439e-a05d-b8f5b4c068e4" />
-<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/65c271d7-02f1-4f40-bfc1-401df06f1357" />
-
 ---
 
 ```markdown
@@ -104,9 +100,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ---
 
-## 📄 License
+## Screenshots
 
-MIT License — see `LICENSE.md` for details.
+<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/67253283-1946-4f2a-97c2-1d25f9ccda51" />
+<img width="835" height="256" alt="image" src="https://github.com/user-attachments/assets/8891446d-bfeb-439e-a05d-b8f5b4c068e4" />
+<img width="1170" height="2532" alt="image" src="https://github.com/user-attachments/assets/65c271d7-02f1-4f40-bfc1-401df06f1357" />
 ```
-
----

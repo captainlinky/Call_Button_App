@@ -35,7 +35,8 @@ echo 🚧 Building Call_Button_App executable...
 pyinstaller --onefile --windowed App.py ^
   --add-data "templates;templates" ^
   --add-data "static;static" ^
-  --add-data "sounds;sounds"
+  --add-data "sounds;sounds" ^
+  --collect-all flask
 
 :: ✅ Completion message
 echo ✅ Build complete. Check the dist\ folder for Call_Button_App.exe

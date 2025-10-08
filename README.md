@@ -19,19 +19,6 @@ A lightweight, mobile-friendly alert system for **1:1 caregiving**. Designed to 
 
 ---
 
-## 🖼️ Screenshots
-
-### Main Panel (Patient View)
-![Main Panel](screenshots/panel_view.png)
-
-### Caregiver Popup Alert
-![Popup Alert](screenshots/popup_alert.png)
-
-### Trend Dashboard
-![Trend Dashboard](screenshots/trend_dashboard.png)
-
----
-
 ## 🛠️ Setup Instructions
 
 ### ✅ Requirements

@@ -26,9 +26,11 @@ IF ERRORLEVEL 1 (
 
 :: Build the EXE
 echo 🚧 Building Call_Button_App executable...
-pyinstaller --onefile --windowed app.py ^
-  --add-data "templates;templates" ^
-  --add-data "static;static"
+pyinstaller --onefile --windowed Call_Button_App.py \
+  --add-data "templates;templates" \
+  --add-data "static;static" \
+  --add-data "sounds;sounds"
+
 
 echo ✅ Build complete. Check the dist\ folder for your .exe file.
 

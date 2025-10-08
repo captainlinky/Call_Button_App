@@ -1,93 +1,69 @@
-# 💙 Call Button App
+💙 Call Button App
+A mobile-friendly alert system designed for 1:1 caregiving, replacing traditional nursing home call buttons using a patient’s phone or tablet.
 
-A simple, mobile-friendly alert system for 1:1 caregiving—built to replace the traditional nursing home call button using a patient’s phone or tablet.
+🧠 Features
+📱 Four care request buttons in a clean mobile UI
 
-This app helps caregivers track and respond to care needs in real time, while logging events for later review. It’s designed for loved ones caring at home, not institutions.
+🔔 Audible alerts and system popups on the caregiver’s PC
 
----
+📊 Event logging to event_log.csv
 
-## 🧩 Features
+📈 Trend dashboard with 24h, 7d, 30d filters
 
-- 📱 Mobile-friendly interface with 4 care request buttons  
-- 🔔 Audible alerts and system popups on the caregiver’s PC  
-- 🧠 Event logging to `event_log.csv`  
-- 📊 Visual trend dashboard with time filters (24h, 7d, 30d)  
-- ⬇️ CSV export for sharing or analysis  
-- 🖥️ Local-only access via LAN/Wi-Fi—no cloud, no tracking
+⬇️ CSV export for sharing or analysis
 
----
+🖥️ Local-only access via LAN/Wi-Fi (no cloud, no tracking)
 
-## 🛠️ Setup Guide
+🛠️ Setup Guide
+✅ Prerequisites
+Python 3.9+
 
-### ✅ Prerequisites
+Flask, Pandas, Matplotlib
 
-- Python 3.9+  
-- Flask, Pandas, Matplotlib  
-- A PC on your local network  
-- A phone or tablet for the patient
+PC on local network
 
-### 📦 Installation
+Phone/tablet for the patient
 
-Option 1: Clone the repo
-
-```bash
+📦 Installation
+bash
 git clone https://github.com/captainlinky/Call_Button_App.git
 cd Call_Button_App
-Option 2: Download ZIP
-
-Click Code → Download ZIP
-
-Extract and open the folder
-
-📦 Install dependencies
-bash
 pip install -r requirements.txt
-Or manually:
-
-bash
-pip install flask pandas matplotlib
-🚀 Run the app
-bash
 python app.py
-You’ll see something like:
-
-Code
- * Running on http://127.0.0.1:5000
 🌐 Accessing the App
-Find your PC’s local IP (e.g., 192.168.1.42) and open:
+Find your PC’s local IP (e.g., 192.168.1.42)
 
-Code
-http://192.168.1.42:5000
-On the patient’s phone/tablet, save this as a home screen shortcut. It opens in a clean, mobile-friendly layout.
+Open http://192.168.1.42:5000 on the patient’s device
+
+Save as a home screen shortcut
 
 📊 Viewing Trends
-Visit:
+Visit http://192.168.1.42:5000/trend
 
-Code
-http://192.168.1.42:5000/trend
-Or tap the “View Event Trends” button at the bottom of the main screen.
+View grouped bar charts by event type and time range
 
-You’ll see a grouped bar chart showing event frequency over time, with a dropdown to filter by range. You can also export the data as CSV.
+Export data as CSV
 
 🔔 What Happens When a Button Is Pressed
-A sound plays on the caregiver’s PC
+Sound plays on caregiver’s PC
 
-A system popup shows the event type
+System popup shows event type
 
-The event is logged to event_log.csv
+Event logged to CSV
 
-It appears in the /trend dashboard
+Appears in /trend dashboard
 
 🧠 Intended Use
-This app is designed for 1:1 caregiving—especially for those supporting loved ones at home. It helps track care frequency and types, which can be useful for:
+Designed for home-based caregiving, not institutions
 
-Building routines
+Helps track care frequency and types
 
-Identifying patterns
-
-Sharing data with in-home care staff or clinicians
-
-It’s not meant for institutional use or multi-patient setups.
+Useful for building routines, identifying patterns, and sharing data with clinicians
 
 🛡️ Security Note
-This app runs locally and does not include authentication. It’s intended for trusted home networks. If you need lightweight protection later, options like basic auth or PIN-based access can be added.
+Runs locally with no authentication
+
+Intended for trusted home networks
+
+Lightweight protection (e.g., PIN access) can be added later
+

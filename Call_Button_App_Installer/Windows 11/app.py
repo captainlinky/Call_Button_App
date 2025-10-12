@@ -167,6 +167,8 @@ def log_and_notify(event_type):
     show_popup("Care Alert", f"Event triggered: {event_type}")
     return redirect(url_for('index'))
 
+@app.route('/trend')
+def show_trend():
 
 
 if __name__ == '__main__':

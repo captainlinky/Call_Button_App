@@ -41,6 +41,18 @@ def play_sound():
     except Exception as e:
         print(f"[ERROR] Sound playback failed: {e}")
 
+from plyer import notification
+
+def show_popup(title, message):
+    try:
+        notification.notify(
+            title=title,
+            message=message,
+            app_name="Call Button App",
+            timeout=5
+        )
+    except Exception as e:
+        print(f"[ERROR] Notification failed: {e}")
 
 @app.route('/trend')
 def trend():
@@ -147,7 +159,9 @@ def index():
 def log_and_notify(event_type):
     log_event(event_type)
     play_sound()
+    show_popup("Care Alert", f"Event triggered: {event_type}")
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -5,6 +5,20 @@ import csv
 import os
 import pandas as pd
 
+from plyer import notification
+import platform
+
+def show_popup(title, message):
+    try:
+        notification.notify(
+            title=title,
+            message=message,
+            app_name="Call Button App",
+            timeout=5
+        )
+    except Exception as e:
+        print(f"[ERROR] Notification failed: {e}")
+
 app = Flask(__name__)
 
 LOG_FILE = 'event_log.csv'
@@ -23,12 +37,27 @@ def log_event(event_type):
 
     print(f"[LOGGED] {event_type} at {timestamp}")
 
+import platform
+import subprocess
+import os
+
 def play_sound():
     sound_path = os.path.join('sounds', ALERT_SOUND)
+    system = platform.system()
+
+    if system == 'Windows':
+        mpg123_path = os.path.join(os.getcwd(), 'mpg123.exe')
+        creation_flags = subprocess.CREATE_NO_WINDOW
+    else:
+        mpg123_path = 'mpg123'
+        creation_flags = 0  # No effect on Linux/macOS
+
     try:
-        subprocess.run(['mpg123', sound_path], check=True)
+        subprocess.run([mpg123_path, sound_path], check=True, creationflags=creation_flags)
     except Exception as e:
         print(f"[ERROR] Sound playback failed: {e}")
+
+
 
 @app.route('/trend')
 def trend():
@@ -135,7 +164,10 @@ def index():
 def log_and_notify(event_type):
     log_event(event_type)
     play_sound()
+    show_popup("Care Alert", f"Event triggered: {event_type}")
     return redirect(url_for('index'))
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

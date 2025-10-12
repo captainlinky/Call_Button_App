@@ -24,8 +24,8 @@ def log_event(event_type):
     print(f"[LOGGED] {event_type} at {timestamp}")
 
 import platform
-import os
 import subprocess
+import os
 
 def play_sound():
     sound_path = os.path.join('sounds', ALERT_SOUND)
@@ -33,13 +33,16 @@ def play_sound():
 
     if system == 'Windows':
         mpg123_path = os.path.join(os.getcwd(), 'mpg123.exe')
+        creation_flags = subprocess.CREATE_NO_WINDOW
     else:
-        mpg123_path = 'mpg123'  # Assumes it's in PATH on Linux/macOS
+        mpg123_path = 'mpg123'
+        creation_flags = 0  # No effect on Linux/macOS
 
     try:
-        subprocess.run([mpg123_path, sound_path], check=True)
+        subprocess.run([mpg123_path, sound_path], check=True, creationflags=creation_flags)
     except Exception as e:
         print(f"[ERROR] Sound playback failed: {e}")
+
 
 
 @app.route('/trend')

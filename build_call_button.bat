@@ -1,45 +1,28 @@
 @echo off
-SETLOCAL
+REM Build Call_Button_App into a Windows executable using PyInstaller
 
-:: 🧪 Check for Python
-python --version >nul 2>&1
-IF ERRORLEVEL 1 (
-    echo ❌ Python is not installed or not in PATH.
-    echo Please install Python from https://www.python.org and try again.
-    EXIT /B 1
-)
-
-:: 📦 Check for pip
-pip --version >nul 2>&1
-IF ERRORLEVEL 1 (
-    echo ❌ pip is not installed or not in PATH.
-    echo Please reinstall Python and ensure pip is included.
-    EXIT /B 1
-)
-
-:: 🔍 Check for PyInstaller
-pip show pyinstaller >nul 2>&1
-IF ERRORLEVEL 1 (
-    echo 📦 Installing PyInstaller...
-    pip install pyinstaller
-)
-
-:: 🧹 Clean previous builds
-echo 🧹 Cleaning old build artifacts...
-rmdir /s /q dist
+REM Step 1: Clean previous builds
+echo Cleaning old build artifacts...
 rmdir /s /q build
-del App.spec >nul 2>&1
+rmdir /s /q dist
+del /q app.spec
 
-:: 🚧 Build the EXE
-echo 🚧 Building Call_Button_App executable...
-pyinstaller --onefile --windowed App.py ^
+REM Step 2: Activate virtual environment (optional)
+REM call venv\Scripts\activate
+
+REM Step 3: Install dependencies
+echo Installing requirements...
+pip install -r requirements.txt
+
+REM Step 4: Build executable
+echo Building executable with PyInstaller...
+pyinstaller --noconfirm --windowed ^
+  --add-data "sounds;sounds" ^
   --add-data "templates;templates" ^
   --add-data "static;static" ^
-  --add-data "sounds;sounds" ^
-  --collect-all flask
+  --add-data "mpg123.exe;." ^
+  app.py
 
-:: ✅ Completion message
-echo ✅ Build complete. Check the dist\ folder for Call_Button_App.exe
-
-ENDLOCAL
+REM Step 5: Notify user
+echo Build complete. Executable is in the dist\ folder.
 pause
